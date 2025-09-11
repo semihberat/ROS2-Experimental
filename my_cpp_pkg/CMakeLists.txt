@@ -27,12 +27,20 @@ ament_target_dependencies(subscriber_node rclcpp std_msgs)
 add_executable(hybrid_node src/hybrid_node.cpp)
 ament_target_dependencies(hybrid_node rclcpp std_msgs)
 
+add_executable(number_publisher src/number_counter_assignment/number_publisher.cpp)
+ament_target_dependencies(number_publisher rclcpp example_interfaces)
+
+add_executable(number_counter_hybrid src/number_counter_assignment/number_counter_hybrid.cpp)
+ament_target_dependencies(number_counter_hybrid rclcpp example_interfaces)
+
 install(TARGETS
   minimal_node
   oop_cpp_template
   publisher_node
   subscriber_node 
   hybrid_node
+  number_publisher
+  number_counter_hybrid
   DESTINATION lib/${PROJECT_NAME}
 )
 
