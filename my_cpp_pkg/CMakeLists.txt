@@ -33,6 +33,16 @@ ament_target_dependencies(number_publisher rclcpp example_interfaces)
 add_executable(number_counter_hybrid src/number_counter_assignment/number_counter_hybrid.cpp)
 ament_target_dependencies(number_counter_hybrid rclcpp example_interfaces)
 
+add_executable(server_service src/server_service.cpp)
+ament_target_dependencies(server_service rclcpp example_interfaces)
+
+add_executable(client_service src/client_service.cpp)
+ament_target_dependencies(client_service rclcpp example_interfaces)
+
+add_executable(reset_counter_client src/number_counter_assignment/reset_counter_client.cpp)
+ament_target_dependencies(reset_counter_client rclcpp example_interfaces)
+
+
 install(TARGETS
   minimal_node
   oop_cpp_template
@@ -41,6 +51,9 @@ install(TARGETS
   hybrid_node
   number_publisher
   number_counter_hybrid
+  server_service
+  client_service
+  reset_counter_client
   DESTINATION lib/${PROJECT_NAME}
 )
 
